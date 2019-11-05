@@ -48,6 +48,7 @@ const removeNote = title => {
 
 const listNotes = () => {
     const notes = loadNotes();
+    console.log(notes);
     console.log(chalk.inverse('Your notes'));
     notes.forEach(note => console.log(chalk.green.inverse(note.title)))
 };
@@ -58,14 +59,13 @@ const listNotes = () => {
 
 const readNotes= (title) => {
     const notes = loadNotes();
-    const findNotes = notes.find(note => {
-        if(note.title === title){
-            console.log(chalk.inverse(note.title));
-            console.log(note.body);
-        } else {
-            console.log(chalk.bgRed('error!! no note found'))
-        }
-    })
+    const findNotes = notes.find(note => note.title === title);
+    if(findNotes){
+        console.log(chalk.inverse(findNotes.title));
+        console.log(findNotes.body);
+    } else {
+        console.log(chalk.bgRed('error!! no note found'))
+    }
 };
 
 

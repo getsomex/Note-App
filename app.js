@@ -54,15 +54,9 @@ yargs.command({
 yargs.command({
     command : 'list',
     describe : 'List note',
-    builder: {
-        title:{
-            describe: 'Note List',
-            demandOption : true,
-            type : 'string'
-        }
-    },
+   
 
-    handler : function(ar){
+    handler : function(){
         notes.listNotes();
     }
 });
@@ -86,5 +80,3 @@ yargs.command({
 });
 
 yargs.parse();
-
-
